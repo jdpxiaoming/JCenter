@@ -11,6 +11,13 @@ if (project.hasProperty("android")) { // Android libraries
     task javadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        options {
+            // 语言
+            locale 'en_US'
+            encoding 'UTF-8'
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
     }
 } else { // Java libraries
     task sourcesJar(type: Jar, dependsOn: classes) {
